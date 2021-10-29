@@ -13,7 +13,7 @@
 	window.addEventListener('scroll', checkHeight)
 
 	function checkHeight() {
-		if (window.scrollY > 11500) {
+		if (window.scrollY > 11900) {
 			goTopBtn.style.display = "flex"
 		} else {
 			goTopBtn.style.display = "none"
