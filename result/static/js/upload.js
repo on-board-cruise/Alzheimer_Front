@@ -1,13 +1,3 @@
-(() => {
-
-  window.addEventListener('load', () => {
-    document.body.classList.remove('before-load');
-});
-
-document.querySelector('.loading').addEventListener('transitionend', (e) => {
-    document.body.removeChild(e.currentTarget);
-});
-
   function readURL(input) {
     if (input.files && input.files[0]) {
        // 인풋 태그에 파일이 있는 경우
@@ -38,4 +28,3 @@ document.querySelector('.loading').addEventListener('transitionend', (e) => {
     $('.file-upload-content').hide();
     $('.image-upload-wrap').show();
   }
-  })();

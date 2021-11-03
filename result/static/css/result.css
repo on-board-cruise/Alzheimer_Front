@@ -10,6 +10,7 @@ body {
 	color: rgb(29, 29, 31);
 	letter-spacing: -0.05em;
 	background: white;
+	overflow: hidden;
 }
 
 p {

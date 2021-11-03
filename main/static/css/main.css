@@ -144,6 +144,7 @@ body.before-load {
 	padding: 0 1rem;
 	font-size: 35px;
 	color: #888;
+	text-align: left;
 }
 
 .line{
@@ -184,6 +185,7 @@ body.before-load {
 	padding: 0 1rem;
 	font-size: 1.2rem;
 	color: #888;
+	text-align: center;
 }
 
 .footer {
@@ -585,5 +587,5 @@ body.before-load {
 
 .box {
 	text-align: center;
-	margin-bottom: 4%;
+	margin-bottom: 3%;
 }

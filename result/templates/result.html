@@ -8,7 +8,62 @@
     <link rel="stylesheet" href="../static/css/result.css">
     <link rel="stylesheet" href="../static/css/default.css">
     <link rel="icon" href="../../static/image/logo1.ico" type="image/x-icon">
+    <style type='text/css'>
+        table, th, td {
+            text-align: center;
+            border: 1px solid #dee2e6;
+            border-spacing: 0;
+            padding: 0.75rem;
+        }
+        table {
+            width: 80%;
+            margin: auto;
+        }
 
+        th {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+
+        td {
+            background-color: #ffffff;
+        }
+
+        tr.hovered:hover td{
+            background-color: #aaaaaa;
+            color: #303f39;
+        }
+
+        div.images {
+            width: 100%;
+            display: flex;
+            margin: auto;
+        }
+
+        div.mri {
+            width: 60%;
+            float: left;
+            align-self: center;
+            margin: auto;
+        }
+
+        div.chart {
+            width: 40%;
+            float: right;
+            align-self: center;
+            margin: auto;
+        }
+
+        /* img {
+            display: block;
+            margin: auto;
+        } */
+
+        section img {
+            margin-top: auto;
+            margin-left: auto;
+        }
+    </style>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <title>result</title>
 </head>
@@ -77,11 +132,10 @@
                 <a href="../../user/login">로그인/&nbsp;회원가입</a>
             </div>
         </nav>
-        <section class="scroll-section">
+        <section class="scroll-section" style="padding-top: 20vh;">
             <!-- <p>결과창 띄어주세요</p> -->
             <p>
-            <h2>예측결과</h2>
-            Class: {{result.result}}<br>
+            <h2 style="padding-bottom: 20px;">예측결과</h2>
             <!-- mild 확률: {{result.mild}}<br>
             moderate 확률: {{result.moderate}}<br>
             normal 확률: {{result.normal}}<br>
@@ -111,7 +165,30 @@
         </div>
         </section>
 
-        <script src="../static/js/result.js"></script>      
+        <script src="../static/js/result.js"></script> 
+        <script type='text/javascript'>
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChart);
+
+            function drawChart() {
+                console.log(document.getElementById('mild').textContent)
+                var data = google.visualization.arrayToDataTable([
+                    ['Class', 'Probability per Class'],
+                    ['Mild', Number(document.getElementById('mild').textContent)],
+                    ['Moderate', Number(document.getElementById('moderate').textContent)],
+                    ['Normal', Number(document.getElementById('normal').textContent)],
+                    ['Very Mild', Number(document.getElementById('very_mild').textContent)]
+                ]);
+
+                var options = {
+                    title: 'predict Alzheimer disease'
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+                chart.draw(data, options);
+            }
+        </script>     
 </body>
 
 </html>
